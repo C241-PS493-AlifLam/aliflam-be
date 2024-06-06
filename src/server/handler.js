@@ -34,7 +34,7 @@ const loginHandler = async (request, h) => {
     return h.response({ error: 'Invalid username or password' }).code(400);
   }
 
-  const isValidPassword = await bcrypt.compare(password, user.password);
+  const isValidPassword = password === user.password;
   if (!isValidPassword) {
     return h.response({ error: 'Invalid username or password' }).code(400);
   }

@@ -1,6 +1,8 @@
 const firestore = require('@google-cloud/firestore');
 
-const db = new firestore();
+const db = new firestore({
+  databaseId : "credential"
+});
 
 //Register
 const createUser = async (username, hashedPassword) => {

@@ -5,7 +5,12 @@ const JWT_SECRET = 'your_jwt_secret_key'; // Ganti dengan secret key Anda
 const init = async () => {
   const server = Hapi.server({
     port: 3000,
-    host: 'localhost'
+    host: 'localhost',
+    routes: {
+      cors: {
+        origin: ["*"],
+      }
+    }
   });
 
   // Atur rute dari file routes.js

@@ -1,4 +1,9 @@
 // const bcrypt = require('bcrypt');
+const firestore = require('@google-cloud/firestore');
+
+const db = new firestore({
+  // databaseId : "credential"
+});
 const jwt = require('jsonwebtoken');
 const { createUser, findUser } = require('../model/firestore');
 
@@ -40,6 +45,7 @@ const loginHandler = async (request, h) => {
   }
 
   const token = generateToken(username);
+  const userRef = db.collection('users').doc(username).add(token);
 
   return h.response({ message: 'Login successful', token }).code(200);
 };

@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 async function loadModel() {
     try {
-        const modelUrl = 'https://storage.googleapis.com/testmodel4_aliflam/model.json';
+        const modelUrl = 'https://storage.googleapis.com/try-models-bucket-aliflam/300524_arabic_model.json';
         const response = await fetch(modelUrl, { timeout: 60000 }); // Increase timeout to 60 seconds
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
